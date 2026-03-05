@@ -48,7 +48,7 @@ gaps:
 
   # Gap between windows and the screen edge.
   outer_gap:
-    top: '60px'
+    top: '70px'
     right: '20px'
     bottom: '20px'
     left: '20px'
@@ -235,7 +235,7 @@ keybindings:
   # Launch CMD terminal. Alternatively, use `shell-exec wt` or
   # `shell-exec %ProgramFiles%/Git/git-bash.exe` to start Windows
   # Terminal and Git Bash respectively.
-  - commands: ['shell-exec wezterm-gui']
+  - commands: ['shell-exec wt']
     bindings: ['alt+enter']
 
   # Focus the workspace that last had focus.

@@ -144,9 +144,9 @@
 
             <div className="center">{output.date?.formatted}</div>
 
-            <div className="right">
+            <div className="right-group">
               {output.glazewm && (
-                <>
+                <div className="tiling-island">
                   {output.glazewm.isPaused && (
                     <button
                       className="paused-button"
@@ -181,53 +181,55 @@
                       output.glazewm.runCommand('toggle-tiling-direction')
                     }
                   ></button>
-                </>
-              )}
-
-              {output.network && (
-                <div className="network">
-                  {getNetworkIcon(output.network)}
-                  {output.network.defaultGateway?.ssid}
                 </div>
               )}
 
-              {output.memory && (
-                <div className="memory">
-                  <i className="nf nf-fae-chip"></i>
-                  {Math.round(output.memory.usage)}%
-                </div>
-              )}
+              <div className="right">
+                {output.network && (
+                  <div className="network">
+                    {getNetworkIcon(output.network)}
+                    {output.network.defaultGateway?.ssid}
+                  </div>
+                )}
 
-              {output.cpu && (
-                <div className="cpu">
-                  <i className="nf nf-oct-cpu"></i>
+                {output.memory && (
+                  <div className="memory">
+                    <i className="nf nf-fae-chip"></i>
+                    {Math.round(output.memory.usage)}%
+                  </div>
+                )}
 
-                  {/* Change the text color if the CPU usage is high. */}
-                  <span
-                    className={output.cpu.usage > 85 ? 'high-usage' : ''}
-                  >
-                    {Math.round(output.cpu.usage)}%
-                  </span>
-                </div>
-              )}
+                {output.cpu && (
+                  <div className="cpu">
+                    <i className="nf nf-oct-cpu"></i>
 
-              {output.battery && (
-                <div className="battery">
-                  {/* Show icon for whether battery is charging. */}
-                  {output.battery.isCharging && (
-                    <i className="nf nf-md-power_plug charging-icon"></i>
-                  )}
-                  {getBatteryIcon(output.battery)}
-                  {Math.round(output.battery.chargePercent)}%
-                </div>
-              )}
+                    {/* Change the text color if the CPU usage is high. */}
+                    <span
+                      className={output.cpu.usage > 85 ? 'high-usage' : ''}
+                    >
+                      {Math.round(output.cpu.usage)}%
+                    </span>
+                  </div>
+                )}
 
-              {output.weather && (
-                <div className="weather">
-                  {getWeatherIcon(output.weather)}
-                  {Math.round(output.weather.celsiusTemp)}°C
-                </div>
-              )}
+                {output.battery && (
+                  <div className="battery">
+                    {/* Show icon for whether battery is charging. */}
+                    {output.battery.isCharging && (
+                      <i className="nf nf-md-power_plug charging-icon"></i>
+                    )}
+                    {getBatteryIcon(output.battery)}
+                    {Math.round(output.battery.chargePercent)}%
+                  </div>
+                )}
+
+                {output.weather && (
+                  <div className="weather">
+                    {getWeatherIcon(output.weather)}
+                    {Math.round(output.weather.celsiusTemp)}°C
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         );
